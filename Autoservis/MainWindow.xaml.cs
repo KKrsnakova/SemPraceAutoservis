@@ -24,5 +24,31 @@ namespace Autoservis
         {
             InitializeComponent();
         }
+        private void ZakaznikViewControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Autoservis.ViewModel.ZakaznikViewModel zakaznikViewModelObject =
+               new Autoservis.ViewModel.ZakaznikViewModel();
+            zakaznikViewModelObject.LoadStudents();
+
+            ZakaznikViewControl.DataContext = zakaznikViewModelObject;
+        }
+
+        private void AutoViewControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Autoservis.ViewModel.AutoViewModel autoViewModelObject =
+               new Autoservis.ViewModel.AutoViewModel();
+            autoViewModelObject.LoadAuta();
+
+            ZakaznikViewControl.DataContext = autoViewModelObject;
+        }
+
+        private void PridejViewControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Autoservis.ViewModel.ZakaznikViewModel autoViewModelObject =
+               new Autoservis.ViewModel.ZakaznikViewModel();
+
+            ZakaznikViewControl.DataContext = autoViewModelObject;
+        }
+
     }
 }
