@@ -44,6 +44,7 @@ namespace Autoservis.Views
                     {
                         Dispatcher.Invoke(() => ServisView.cena.Polozka =  polozka.Text);
                         Dispatcher.Invoke(() => ServisView.cena.CenaPolozky =  int.Parse(cena.Text));
+                        Dispatcher.Invoke(() => NovaCena.GetWindow(this).Close());
                     }
                     catch (Exception e)
                     {
@@ -54,24 +55,26 @@ namespace Autoservis.Views
                 }
                 else
                 {
-              
-                    try
-                    {
-                        Dispatcher.Invoke(() => CenaViewModel.SeznamCenaServisu.Add(new Cena
+                    int prevodCena = 0;
+                    
+                        if (Dispatcher.Invoke(() => int.TryParse(cena.Text,out prevodCena)))
                         {
-                            Polozka = Dispatcher.Invoke(() => polozka.Text),
-                            CenaPolozky = Dispatcher.Invoke(() => int.Parse(cena.Text)),
-                            IdServisu = Dispatcher.Invoke(() => ServisView.servis.IdServis)
-                        }));
-                    }
+                            Dispatcher.Invoke(() => CenaViewModel.SeznamCenaServisu.Add(new Cena
+                            {
+                                Polozka = Dispatcher.Invoke(() => polozka.Text),
+                                CenaPolozky = Dispatcher.Invoke(() => int.Parse(cena.Text)),
+                                IdServisu = Dispatcher.Invoke(() => ServisView.servis.IdServis)
 
-                    catch (Exception e)
-                    {
-                        MessageBox.Show("Chybně vyplněno" + e, "Chyba");
+                            }));
+                        Dispatcher.Invoke(() => NovaCena.GetWindow(this).Close());
                     }
-
-                }
-             Dispatcher.Invoke(() => NovaCena.GetWindow(this).Close());
+                        else
+                        {
+                            MessageBox.Show("Chybně vyplněno" + e, "Chyba");
+                        }
+                    }
+                
+             
 
             });
             threadAdd.Start();

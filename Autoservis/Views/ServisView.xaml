@@ -11,7 +11,8 @@
 
         </StackPanel>
         <StackPanel  Orientation = "Horizontal" >
-            <ListView Name="lvServis" Margin="10" BorderBrush="#31B4E6" BorderThickness="3" HorizontalAlignment="Left" Width="440" HorizontalContentAlignment="Left" SelectionChanged="lvServis_SelectionChanged">
+            <ListView Name="lvServis" Margin="10" BorderBrush="#31B4E6" BorderThickness="3" 
+                      HorizontalAlignment="Left" Width="440" HorizontalContentAlignment="Left" SelectionChanged="lvServis_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Závada"  Width="120" DisplayMemberBinding="{Binding Path= Zavada}" />
@@ -23,7 +24,8 @@
                 </ListView.View>
             </ListView>
             <StackPanel Orientation="Vertical" Margin="0,20,0,0">
-                <ListView  Name="lvCena" Margin="0" BorderBrush="#31B4E6" Height="410" BorderThickness="3" ItemsSource="{Binding Path=Cena}" HorizontalAlignment="Left" Width="200" HorizontalContentAlignment="Left">
+                <ListView  Name="lvCena" Margin="0" BorderBrush="#31B4E6" Height="410" BorderThickness="3" 
+                           ItemsSource="{Binding Path=Cena}" HorizontalAlignment="Left" Width="200" HorizontalContentAlignment="Left">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Položka"  Width="100" DisplayMemberBinding="{Binding Path= Polozka}" />
