@@ -9,9 +9,14 @@
    Title = "Autoservis" Height = "500" Width = "800">
 
     <Grid>
-        <views:ZakaznikView x:Name = "ZakaznikViewControl" Loaded = "ZakaznikViewControl_Loaded"/>
-        
+        <views:ZakaznikView x:Name = "ZakaznikViewControl"/>
+        <!--<views:AutoView x:Name = "ZakaznikViewControl" Loaded = "AutoViewControl_Loaded"/>-->
+        <!--<views:ServisView x:Name = "ZakaznikViewControl" Loaded = "ServisViewControl_Loaded"/>-->
+        <!--<views:PridejKlientaView x:Name = "ZakaznikViewControl" Loaded = "PridejViewControl_Loaded"/>-->
+        <!--<views:NovyKlient x:Name = "ZakaznikViewControl" Loaded = "PridejKlienta_Loaded"/>-->
+        <!--<views:ZakaznikView x:Name = "ZakaznikViewControl" />-->
     </Grid>
+
     
 
 </Window>

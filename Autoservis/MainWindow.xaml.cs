@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Autoservis.Manager;
+using Autoservis.Model;
+using Autoservis.ViewModel;
+using Autoservis.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,21 +30,14 @@ namespace Autoservis
         }
         private void ZakaznikViewControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Autoservis.ViewModel.ZakaznikViewModel zakaznikViewModelObject =
-               new Autoservis.ViewModel.ZakaznikViewModel();
-            zakaznikViewModelObject.LoadStudents();
+            ServisViewModel.SeznamServisu = ZakaznikView.servisMng.GetAllServis();
+            ZakaznikViewModel.Zakaznici = ZakaznikView.klientMng.GetAllKlient();
+            AutoViewModel.Auta = ZakaznikView.autoMng.GetAllAuto();
+            CenaViewModel.SeznamCenaServisu = ZakaznikView.cenaMng.GetAllCena();
 
-            ZakaznikViewControl.DataContext = zakaznikViewModelObject;
         }
 
-        private void AutoViewControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            Autoservis.ViewModel.AutoViewModel autoViewModelObject =
-               new Autoservis.ViewModel.AutoViewModel();
-            autoViewModelObject.LoadAuta();
-
-            ZakaznikViewControl.DataContext = autoViewModelObject;
-        }
+     
 
         private void PridejViewControl_Loaded(object sender, RoutedEventArgs e)
         {
@@ -50,5 +47,14 @@ namespace Autoservis
             ZakaznikViewControl.DataContext = autoViewModelObject;
         }
 
+        private void PridejKlienta_Loaded(object sender, RoutedEventArgs e)
+        {
+            Autoservis.ViewModel.ZakaznikViewModel autoViewModelObject =
+               new Autoservis.ViewModel.ZakaznikViewModel();
+
+            ZakaznikViewControl.DataContext = autoViewModelObject;
+        }
+
     }
 }
+    

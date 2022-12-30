@@ -4,14 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Autoservis.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:model="clr-namespace:Autoservis.ViewModel" 
+             xmlns:model1="clr-namespace:Autoservis.Model" 
+             mc:Ignorable="d" Height="450" Width="800">
     <Grid>
         <StackPanel  Orientation = "Vertical" Height="30" VerticalAlignment="Top" >
         
         </StackPanel>
         <StackPanel  Orientation = "Horizontal" >
-            <ListView Margin="20" BorderBrush="#31B4E6" BorderThickness="3" ItemsSource="{Binding Path=Zakaznici}" HorizontalAlignment="Left" Width="600" HorizontalContentAlignment="Left">
+            <ListView Name="lvZakaznici" MouseDoubleClick="lvZakaznici_MouseDoubleClick" Margin="20" BorderBrush="#31B4E6" BorderThickness="3"  HorizontalAlignment="Left" Width="600" HorizontalContentAlignment="Left" SelectionChanged="lvZakaznici_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Jmeno"  Width="100" DisplayMemberBinding="{Binding Path= Jmeno}" />
@@ -25,11 +26,10 @@
             </ListView>
             <StackPanel Orientation="Vertical" HorizontalAlignment ="Right" >
 
-                <Button Content="Přidat" Foreground="White" Background="#31B4E6" Height="30" HorizontalAlignment="Center" Margin="15,10,0,0" VerticalAlignment="Top" Width="100"/>
-                <Button Content="Odebrat" Foreground="White" Background="#31B4E6" Height="30" HorizontalAlignment="Center" Margin="15,10,0,0" VerticalAlignment="Top" Width="100"/>
-                <Button Content="Editovat" Foreground="White" Background="#31B4E6" Height="30" HorizontalAlignment="Center" Margin="15,10,0,0" VerticalAlignment="Top" Width="100"/>
-
-
+                <Button Content="Přidat" Foreground="White" Background="#31B4E6" Height="30" HorizontalAlignment="Center" Margin="15,10,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
+                <Button Content="Odebrat" Foreground="White" Background="#31B4E6" Height="30" HorizontalAlignment="Center" Margin="15,10,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_1"/>
+                <Button Content="Editovat" Foreground="White" Background="#31B4E6" Height="30" HorizontalAlignment="Center" Margin="15,10,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_2"/>
+                <Button Content="Ulož do DB" Foreground="White" Background="#31B4E6" Height="30" HorizontalAlignment="Center" Margin="15,10,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_3"/>
 
             </StackPanel>
         </StackPanel>

@@ -3,22 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Autoservis.Views"
+             xmlns:local="clr-namespace:Autoservis.Views" xmlns:model="clr-namespace:Autoservis.Model"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <StackPanel Orientation = "Horizontal">
-            <ListView Margin="10" ItemsSource="{Binding Path=Auta}" HorizontalAlignment="Left" HorizontalContentAlignment="Left">
+        
+            <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+            <ListView Name="lvZakaznik" Margin="20,20,0,300" BorderBrush="#31B4E6" BorderThickness="3" HorizontalAlignment="Left" Width="760" HorizontalContentAlignment="Left">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Značka"  DisplayMemberBinding="{Binding Path= ZnackaVozu}" />
-                        <GridViewColumn Header="Model"  DisplayMemberBinding="{Binding Path= ModelVozu}" />
+                        <GridViewColumn Header="Jmeno"  Width="100" DisplayMemberBinding="{Binding Path= Jmeno}" />
+                        <GridViewColumn Header="Prijmeni" Width="100" DisplayMemberBinding="{Binding Path= Prijmeni}" />
+                        <GridViewColumn Header="Telefon" Width="100" DisplayMemberBinding="{Binding Path= Telefon}" />
+                        <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Path= Email}" />
+                        <GridViewColumn Header="Adresa" Width="190" DisplayMemberBinding="{Binding Path= Adresa}" />
+                        <GridViewColumn Header="Poznamka" Width="100" DisplayMemberBinding="{Binding Path= Poznamky}" />
                     </GridView>
                 </ListView.View>
             </ListView>
-            <StackPanel Orientation="Vertical">
+        </StackPanel>
+        <StackPanel Orientation = "Horizontal">
+            <ListView  Name="lvAuta" MouseDoubleClick="lvAuta_MouseDoubleClick" Margin="20,100,0,20" BorderBrush="#31B4E6" BorderThickness="3" ItemsSource="{Binding Path=Auto}" HorizontalAlignment="Left" Width="600" HorizontalContentAlignment="Left" >
+                 <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Značka vozu" Width="100"  DisplayMemberBinding="{Binding Path= ZnackaVozu}" />
+                        <GridViewColumn Header="Model vozu" Width="100"  DisplayMemberBinding="{Binding Path= ModelVozu}" />
+                        <GridViewColumn Header="SPZ" Width="100" DisplayMemberBinding="{Binding Path= Spz}" />
+                        <GridViewColumn Header="VIN" Width="200" DisplayMemberBinding="{Binding Path= Vin}" />
+                        <GridViewColumn Header="Barva" Width="100" DisplayMemberBinding="{Binding Path= Barva}" />
+                    </GridView>
+                </ListView.View>
+                </ListView>
+            
+            <StackPanel Orientation="Vertical" Margin="30,100,0,0">
 
-                <Button Content="Přidat" Height="30" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="100"/>
+                <Button Name="pridat" Content="Přidat" Foreground="White" Background="#31B4E6" Height="30" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
+                <Button Name="odebrat" Content="Odebrat" Foreground="White" Background="#31B4E6" Height="30" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_Odebrat"/>
+                <Button Name="editovat" Content="Editovat" Foreground="White" Background="#31B4E6" Height="30" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_Edit"/>
             </StackPanel>
         </StackPanel>
 

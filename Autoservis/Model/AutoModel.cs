@@ -13,12 +13,30 @@ namespace Autoservis.Model
 
     public class Auto : INotifyPropertyChanged
     {
+        private int idVozu;
         private string znackaVozu;
         private string modelVozu;
         private string spz;
         private string vin;
         private string barva;
+        private int idKlienta;
 
+        public int IdVozu
+        {
+            get
+            {
+                return idVozu;
+            }
+
+            set
+            {
+                if (idVozu != value)
+                {
+                    idVozu = value;
+                    RaisePropertyChanged("IdVozu");
+                }
+            }
+        }
         public string ZnackaVozu
         {
             get
@@ -32,6 +50,23 @@ namespace Autoservis.Model
                 {
                     znackaVozu = value;
                     RaisePropertyChanged("ZnackaVozu");
+                }
+            }
+        }
+
+        public int IdKlienta
+        {
+            get
+            {
+                return idKlienta;
+            }
+
+            set
+            {
+                if (idKlienta != value)
+                {
+                    idKlienta = value;
+                    RaisePropertyChanged("IdKlienta");
                 }
             }
         }

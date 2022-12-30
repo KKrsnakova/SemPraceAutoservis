@@ -10,7 +10,7 @@ namespace Autoservis.ViewModel
 {
     public class ZakaznikViewModel
     {
-        public ObservableCollection<Zakaznik> Zakaznici
+        public static ObservableCollection<Zakaznik> Zakaznici
         {
             get;
             set;
@@ -24,20 +24,22 @@ namespace Autoservis.ViewModel
             {
                 Jmeno = "Mark",
                 Prijmeni = "Allain",
-                Telefon = 789456123,
+                Telefon = "789456123",
                 Email = "xxx@yyy.cz",
                 Adresa = "bbdbd 12, dbdd, 12345",
-                Poznamky = "xxxxxxxxxx"
+                Poznamky = "xxxxxxxxxx",
+                Id = 1
             }); 
             zakaznici.Add(new Zakaznik
             {
                 Jmeno = "Allen",
                 Prijmeni = "Brown",
-                Telefon = 555666999,
+                Telefon = "555666999",
                 Email = "ddd@yyy.cz",
                 Adresa = "bbdbd 12, dbdd, 12345",
-                Poznamky = "xxxxxxxxxx"
-            });
+                Poznamky = "xxxxxxxxxx",
+                Id = 2
+            }) ;
 
             Zakaznici = zakaznici;
         }

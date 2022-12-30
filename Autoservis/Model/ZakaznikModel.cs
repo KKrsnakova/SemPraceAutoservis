@@ -12,13 +12,35 @@ namespace Autoservis.Model
 
     public class Zakaznik : INotifyPropertyChanged
     {
+        private int id;
         private string jmeno;
         private string prijmeni;
-        private int telefon;
+        private string telefon;
         private string email;
         private string adresa;
         private string? poznamky;
         private ObservableCollection<Auto>? auta;
+
+        public Zakaznik()
+        {
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                if (id != value)
+                {
+                    id = value;
+                    RaisePropertyChanged("Id");
+                }
+            }
+        }
+
 
         public string Jmeno
         {
@@ -51,7 +73,7 @@ namespace Autoservis.Model
             }
         }
 
-        public int Telefon
+        public string Telefon
         {
             get { return telefon; }
 

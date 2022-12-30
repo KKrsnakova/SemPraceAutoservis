@@ -11,7 +11,7 @@ namespace Autoservis.ViewModel
 {
     internal class AutoViewModel
     {
-        public ObservableCollection<Auto> Auta
+        public static ObservableCollection<Auto> Auta
         {
             get;
             set;
@@ -23,21 +23,25 @@ namespace Autoservis.ViewModel
 
             seznamAut.Add(new Auto
             {
+                IdVozu = 1,
                 ZnackaVozu = "Škoda",
                 ModelVozu = "Fabia",
                 Spz = "2SD853",
                 Vin = "xdsd44s4s",
-                Barva = "Modrá"
+                Barva = "Modrá",
+                IdKlienta = 1
             });
             seznamAut.Add(new Auto
             {
+                IdVozu = 2,
                 ZnackaVozu = "Ford",
                 ModelVozu = "Focus",
                 Spz = "2SD883",
                 Vin = "fddes4445s6",
-                Barva = "Červená"
+                Barva = "Červená",
+                IdKlienta = 2
+                
             });
-           
             Auta = seznamAut;
         }
     }
